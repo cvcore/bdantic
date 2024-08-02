@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Optional, Set, Tuple, Type, TypeVar
 from beancount import loader
 from beancount.core import data, realization
 from beancount.query import query
-from pydantic import Extra
+from pydantic.v1 import Extra
 
 from bdantic import models
 from bdantic.types import ModelDirective, type_map

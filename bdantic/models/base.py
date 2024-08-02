@@ -24,7 +24,7 @@ import jmespath  # type: ignore
 import orjson
 from beancount.core import data, number
 from beancount.parser import printer  # type: ignore
-from pydantic import BaseModel, Extra, Field
+from pydantic.v1 import BaseModel, Extra, Field
 
 S = TypeVar("S", bound="Base")
 T = TypeVar("T")

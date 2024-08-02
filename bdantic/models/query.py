@@ -8,7 +8,7 @@ from decimal import Decimal
 from typing import Any, Dict, List, Literal, Tuple, Type
 
 from beancount.core import amount, inventory, position
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 
 from ..types import type_map
 from .base import Base

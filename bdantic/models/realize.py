@@ -6,7 +6,7 @@ from datetime import date
 from typing import Dict, List, Literal, Optional, Type, TypeVar, Union
 
 from beancount.core import data, realization
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 
 from .base import Base, BaseList
 from .data import Account as AccountName

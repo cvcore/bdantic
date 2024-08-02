@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.3.0]
+
+- moved to Pydantic v2
 
 ## [0.2.6] - 2022-02-10
 
@@ -53,9 +55,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `by_id` and `by_ids` methods to `Directives` for fetching directives by ID
 - `by_account` method to `Directives` for fetching directives by account name
 - `by_type` method to `Directives` and `TxnPostings` for fetching entries by
-   type
+  type
 - `accounts` field to `BeancountFile` for holding all `Account` instances parsed
-   from the file
+  from the file
 - `compress` and `decompress` methods to `BeancountFile` for compressing and
   decompressing a whole `BeancountFile` instance.
 
