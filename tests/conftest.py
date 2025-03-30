@@ -10,7 +10,7 @@ import pytest
 from beancount import loader
 from beancount.core import data, distribution
 from beancount.scripts import example  # type: ignore
-from pydantic import BaseModel
+from pydantic.v1 import BaseModel
 
 from bdantic import models, types
 from bdantic.models import base
