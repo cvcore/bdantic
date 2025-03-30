@@ -77,9 +77,7 @@ def test_parse_all():
         )
     )
 
-    expected_models.append(
-        models.data.Amount(number=Decimal(1.50), currency="USD")
-    )
+    expected_models.append(models.data.Amount(number=Decimal(1.50), currency="USD"))
     expected_models.append(
         models.directives.Balance(
             meta=None,

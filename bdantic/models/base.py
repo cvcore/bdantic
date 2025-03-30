@@ -47,9 +47,7 @@ _DIRECTIVES = [
 
 
 def orjson_dumps(v, *, default):
-    return orjson.dumps(
-        v, default=default, option=orjson.OPT_NON_STR_KEYS
-    ).decode()
+    return orjson.dumps(v, default=default, option=orjson.OPT_NON_STR_KEYS).decode()
 
 
 class Base(BaseModel, Generic[T]):
@@ -135,9 +133,7 @@ class Base(BaseModel, Generic[T]):
         """
         return self._sibling(**recursive_export(self, _IGNORE_FIELDS))
 
-    def select(
-        self, expr: str, model: Type[BaseModel] = None
-    ) -> Optional[Any]:
+    def select(self, expr: str, model: Type[BaseModel] = None) -> Optional[Any]:
         """Selects from this model using a jmespath expression.
 
         The model is converted to a dictionary and then the given jmespath
@@ -375,14 +371,11 @@ def recursive_export(b: Any, skip_fields: List[str] = []) -> Dict[str, Any]:
                 result[key] = value
             continue
         if isinstance(value, Base):
-            result[key] = value._sibling(
-                **recursive_export(value, skip_fields)
-            )
+            result[key] = value._sibling(**recursive_export(value, skip_fields))
         elif isinstance(value, list) and value:
             if isinstance(value[0], Base):
                 result[key] = [
-                    c._sibling(**recursive_export(c, skip_fields))
-                    for c in value
+                    c._sibling(**recursive_export(c, skip_fields)) for c in value
                 ]
             else:
                 result[key] = value
@@ -407,9 +400,7 @@ def _map(obj: Any, fn: Callable) -> Any:
     """
     if isinstance(obj, dict):
         return {k: _map(v, fn) for k, v in obj.items()}
-    elif (
-        isinstance(obj, list) or isinstance(obj, set) or isinstance(obj, tuple)
-    ):
+    elif isinstance(obj, list) or isinstance(obj, set) or isinstance(obj, tuple):
         return [_map(v, fn) for v in obj]
     else:
         return fn(obj)

@@ -65,9 +65,7 @@ def test_directives_by_account(op, bal, txn):
 
     assert dirs.by_account(pop.account) == file.Directives(__root__=[pop])
     assert dirs.by_account(pbal.account) == file.Directives(__root__=[pbal])
-    assert dirs.by_account(ptxn.postings[0].account) == file.Directives(
-        __root__=[ptxn]
-    )
+    assert dirs.by_account(ptxn.postings[0].account) == file.Directives(__root__=[ptxn])
 
 
 @given(h.open(), h.balance(), h.transaction())
@@ -96,9 +94,7 @@ def test_directives_by_type(op, bal, txn):
 
     assert dirs.by_type(directives.Open) == file.Directives(__root__=[pop])
     assert dirs.by_type(directives.Balance) == file.Directives(__root__=[pbal])
-    assert dirs.by_type(directives.Transaction) == file.Directives(
-        __root__=[ptxn]
-    )
+    assert dirs.by_type(directives.Transaction) == file.Directives(__root__=[ptxn])
 
 
 @given(

@@ -117,9 +117,7 @@ class Ctx(BaseModel):
         for i in range(len(list1)):
             self.compare(list1[i], list2[i], partial)
 
-    def compare_object(
-        self, obj1: Any, obj2: Any, partial: bool = True
-    ) -> None:
+    def compare_object(self, obj1: Any, obj2: Any, partial: bool = True) -> None:
         """Compares two objects, asserting they are equal.
 
         Objects are compared by iterating over their attributes and asserting
@@ -149,9 +147,7 @@ class Ctx(BaseModel):
         attr2 = set([attr for attr in dir(obj2) if is_valid_attr(attr, obj2)])
 
         if not partial:
-            assert not attr1.difference(
-                attr2
-            ), "Objects have dissimilar attributes"
+            assert not attr1.difference(attr2), "Objects have dissimilar attributes"
             attrs = attr1
         else:
             attrs = attr1.intersection(attr2)
