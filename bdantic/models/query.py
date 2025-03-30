@@ -58,7 +58,9 @@ class QueryResult(Base):
     rows: List[QueryRow]
 
     @classmethod
-    def parse(cls, obj: Tuple[List[Tuple[str, Type]], List[Any]]) -> QueryResult:
+    def parse(
+        cls, obj: Tuple[List[Tuple[str, Type]], List[Any]]
+    ) -> QueryResult:
         """Parses a beancount query result into this model
 
         Args:
@@ -69,7 +71,9 @@ class QueryResult(Base):
         """
         columns: List[QueryColumn] = []
         for column in obj[0]:
-            columns.append(QueryColumn(name=column[0], type=column[1].__name__))
+            columns.append(
+                QueryColumn(name=column[0], type=column[1].__name__)
+            )
 
         rows: List[QueryRow] = []
         for row in obj[1]:

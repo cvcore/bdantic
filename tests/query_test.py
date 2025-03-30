@@ -57,7 +57,9 @@ def query_response(draw):
 
 
 @given(query_response())
-def test_queryresult(ctx: Ctx, r: Tuple[List[Tuple[str, Type]], List[Dict[str, Any]]]):
+def test_queryresult(
+    ctx: Ctx, r: Tuple[List[Tuple[str, Type]], List[Dict[str, Any]]]
+):
     class FakeTuple:
         d: Dict[str, Any]
 
@@ -86,7 +88,9 @@ def test_queryresult(ctx: Ctx, r: Tuple[List[Tuple[str, Type]], List[Dict[str, A
     )
 
 
-def test_query(ctx: Ctx, beanfile: tuple[list[data.Directive], list, dict[str, Any]]):
+def test_query(
+    ctx: Ctx, beanfile: tuple[list[data.Directive], list, dict[str, Any]]
+):
     entries, _, options = beanfile
     result = bquery.run_query(
         entries, options, "SELECT date, narration, account, position"

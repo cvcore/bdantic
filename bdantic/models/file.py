@@ -321,7 +321,9 @@ class BeancountFile(Base):
         elif self.options.filename:
             return loader.compute_input_hash([self.options.filename])
         else:
-            raise FileNotFoundError("No source files associated with this instance")
+            raise FileNotFoundError(
+                "No source files associated with this instance"
+            )
 
     def query(self, query_str: str) -> QueryResult:
         """Executes the given BQL query against the entries in this file.

@@ -88,7 +88,9 @@ class Inventory(BaseList):
 
     @classmethod
     def parse(cls, obj: inventory.Inventory) -> Inventory:
-        positions = [Position.parse(position) for position in obj.get_positions()]
+        positions = [
+            Position.parse(position) for position in obj.get_positions()
+        ]
         return Inventory(__root__=positions)
 
     def export(self) -> inventory.Inventory:
